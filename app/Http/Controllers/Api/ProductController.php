@@ -51,7 +51,7 @@ class ProductController extends Controller
                 $products->where('price', '<=', $priceStart);
             }
 
-            if ($categories) {
+            if ($categoryId) {
                 $products->where('product_category_id', $categoryId);
             }
 
