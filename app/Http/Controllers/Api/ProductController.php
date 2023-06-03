@@ -17,7 +17,7 @@ class ProductController extends Controller
             $limit = $request->input('limit', 10);
             $search = $request->input('search');
             $tags = $request->input('tags');
-            $categories = $request->input('categories');
+            $categoryId = $request->input('category_id');
 
             $priceFrom = $request->input('price_from');
             $priceStart = $request->input('price_start');
@@ -52,7 +52,7 @@ class ProductController extends Controller
             }
 
             if ($categories) {
-                $products->where('categories', $categories);
+                $products->where('product_category_id', $categoryId);
             }
 
             return ResponseFormatter::success($products->paginate($limit), 'Product data retrieved successfully!');
